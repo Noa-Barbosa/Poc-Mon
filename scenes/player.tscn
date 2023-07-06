@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://grf6vv34qd33"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_kmvp3"]
+[ext_resource type="Texture2D" uid="uid://lm1pcjxgcyg0" path="res://sprites/character-sprite-sheet.png" id="2_rapey"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h0lo"]
+atlas = ExtResource("2_rapey")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn1kk"]
+atlas = ExtResource("2_rapey")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v88od"]
+atlas = ExtResource("2_rapey")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvksj"]
+atlas = ExtResource("2_rapey")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nq7jq"]
+atlas = ExtResource("2_rapey")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f87x"]
+atlas = ExtResource("2_rapey")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htdcf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4h0lo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn1kk")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v88od")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvksj")
+}],
+"loop": true,
+"name": &"walk_left_and_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nq7jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f87x")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47364"]
+size = Vector2(14, 14)
+
+[node name="player" type="CharacterBody2D"]
+position = Vector2(39, 103)
+script = ExtResource("1_kmvp3")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_htdcf")
+animation = &"walk_left_and_right"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_47364")

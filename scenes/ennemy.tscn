@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://7jmt2swctnir"]
+
+[ext_resource type="Texture2D" uid="uid://dydc6buntwem0" path="res://sprites/Pinani092.png" id="1_6fbko"]
+[ext_resource type="Script" path="res://scripts/ennemy.gd" id="1_fyl1e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8nt85"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6fbko")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhah7"]
+size = Vector2(14, 14)
+
+[node name="ennemy" type="CharacterBody2D"]
+position = Vector2(199, 231)
+script = ExtResource("1_fyl1e")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.533333)
+sprite_frames = SubResource("SpriteFrames_8nt85")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yhah7")
+
+[node name="nav" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
