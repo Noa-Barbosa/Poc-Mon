@@ -12,7 +12,6 @@ func set_movement_target(movement_target: Vector2):
 func _physics_process(_delta):
 	set_movement_target(get_parent().get_node("player").global_position)
 	if navigation_agent.is_navigation_finished():
-		print("finished")
 		return
 
 	

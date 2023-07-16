@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/portal.gd" id="1_jyd35"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3j87a"]
+size = Vector2(16, 16)
 
 [node name="portal" type="Area2D"]
 position = Vector2(6, 248)
@@ -10,3 +11,7 @@ script = ExtResource("1_jyd35")
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3j87a")
+
+[node name="timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
