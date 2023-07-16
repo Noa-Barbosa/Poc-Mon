@@ -18,7 +18,7 @@ animations = [{
 size = Vector2(14, 14)
 
 [node name="ennemy" type="CharacterBody2D"]
-position = Vector2(199, 231)
+position = Vector2(19, 17)
 script = ExtResource("1_fyl1e")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]

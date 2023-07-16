@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6a7u1p5j6d2y"]
+[gd_scene load_steps=9 format=3 uid="uid://c6a7u1p5j6d2y"]
 
 [ext_resource type="Texture2D" uid="uid://k6ls5m2oiam7" path="res://sprites/Game Boy GBC - Pokemon Gold Silver - Lake of Rage.png" id="1_csgvy"]
 
@@ -12,6 +12,11 @@ tile_data = PackedInt32Array(0, 262144, 14)
 tile_data = PackedInt32Array(0, 262144, 15)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_30omb"]
+vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_n7onv"]
 vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
@@ -49,6 +54,7 @@ margins = Vector2i(8, 23)
 5:14/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 5:14/0/physics_layer_1/angular_velocity = 0.0
 5:14/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:14/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_n7onv")
 
 [sub_resource type="TileSet" id="TileSet_gq5ym"]
 physics_layer_0/collision_layer = 1
