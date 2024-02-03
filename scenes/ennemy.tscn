@@ -29,4 +29,5 @@ sprite_frames = SubResource("SpriteFrames_8nt85")
 shape = SubResource("RectangleShape2D_yhah7")
 
 [node name="nav" type="NavigationAgent2D" parent="."]
+target_desired_distance = 0.1
 path_postprocessing = 1

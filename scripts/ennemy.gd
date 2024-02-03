@@ -2,9 +2,17 @@ extends CharacterBody2D
 
 @export var movement_speed: float = 40
 @onready var navigation_agent: NavigationAgent2D = get_node("nav")
+@onready var tile_map : TileMap = get_parent().get_node("background")
+@onready var player = get_parent().get_node("player")
+#@onready var tiles : Array[Vector2i] = tile_map.get_used_cells_by_id(0,0,Vector2i(4,15))
 
-func _ready() -> void:
-	pass
+#variable globale initialisee dans la fonction initialize() de Dijkstra
+var distances : Array 
+var parents : Array
+var unexplored_tiles : Array = []
+var current_tile : Vector2i 
+var player_tile : Vector2i
+var neighbours : Array[Vector2i]	
 
 func set_movement_target(movement_target: Vector2):
 	navigation_agent.set_target_position(movement_target)
@@ -16,8 +24,7 @@ func _physics_process(_delta):
 
 	
 	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
-	var current_agent_position: Vector2 = global_position
-	var new_velocity: Vector2 = (next_path_position - current_agent_position).normalized() * movement_speed
+	var new_velocity: Vector2 = global_position.direction_to(next_path_position) * movement_speed
 	if navigation_agent.avoidance_enabled:
 		navigation_agent.set_velocity(new_velocity)
 	else:
